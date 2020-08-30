@@ -14,8 +14,8 @@
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "mongodb": "^3.6.0",
-    "nanoid": "^3.1.10",
-    "nunjucks": "^3.2.1"
+    "nanoid": "^3.1.12",
+    "nunjucks": "^3.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
