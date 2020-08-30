@@ -1,0 +1,10 @@
+{
+  "name": "mongo_test",
+  "main": "index.js",
+  "scripts": {},
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.0"
+  }
+}

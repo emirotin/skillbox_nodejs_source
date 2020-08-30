@@ -7,6 +7,14 @@
     "es6": true
   },
   "plugins": ["prettier", "jest"],
-  "rules": {},
+  "rules": {
+    "no-unused-vars": [
+      2,
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ]
+  },
   "settings": {}
 }
