@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" 
+      type="image/png" 
+      href="/clock.png">
+    <title>({{ count }}) Counter</title>
+    {{ uikitCss | safe }}
+  </head>
+  <body>
+    <section class="uk-container">
+      <h1>The count is: {{ count }}</h1>
+      {% if count > 10 %}
+        <h2>WOAH!</h2>
+      {% endif %}
+      <p><button id="button">Increment it</button></p>
+      <p>This page is using UIKit: <code>{{ uikitCss }}</code></p>
+      {% if count > 0 %}
+        <ul>
+          {% for cnt in counts %}
+          <li>{{cnt}} bottles of beer on the wall</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </section>
+  </body>
+  <script>
+    document.getElementById("button").addEventListener("click", () => {
+      fetch("/inc", { method: "post" }).then(() => {
+        location.reload();
+      });
+    });
+  </script>
+</html>

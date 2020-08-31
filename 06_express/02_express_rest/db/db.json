@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "name": "joe",
+      "_id": "GybPZw5_VUun3L-GreRtw"
+    },
+    {
+      "name": "mary",
+      "age": 22,
+      "_id": "174IBfqmGNgMGsmrkGgVh"
+    }
+  ]
+}
