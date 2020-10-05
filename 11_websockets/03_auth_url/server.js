@@ -77,7 +77,8 @@ wss.on("connection", (ws, req) => {
 
     if (data.type === "chat_message") {
       const fullMessage = JSON.stringify({
-        ...data,
+        type: data.type,
+        message: data.message,
         name: user.username,
       });
 
