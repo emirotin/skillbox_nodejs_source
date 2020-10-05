@@ -10,19 +10,26 @@ const client = new WebSocket(`${wsProto}//${location.host}`);
 const messagesContainer = document.getElementById("chat");
 
 const addMesage = ({ name, message }) => {
-  const messageEl = document.createElement("p");
-  messageEl.classList.add("message");
-  messageEl.innerHTML = `
-    <span class="name">${name}</span>
-    <span class="message">${message}</span>
-  `;
-  messagesContainer.appendChild(messageEl);
+  const cEl = document.createElement("p");
+
+  const nEl = document.createElement("name");
+  nEl.className = "name";
+  nEl.innerText = name;
+  cEl.appendChild(nEl);
+
+  const mEl = document.createElement("name");
+  mEl.className = "message";
+  mEl.innerText = message;
+  cEl.appendChild(mEl);
+
+  messagesContainer.appendChild(cEl);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
 };
 
-client.addEventListener("message", (data) => {
+client.addEventListener("message", (message) => {
+  let data;
   try {
-    data = JSON.parse(data.data);
+    data = JSON.parse(message.data);
   } catch (err) {
     return;
   }
