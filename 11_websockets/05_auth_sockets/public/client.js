@@ -26,28 +26,6 @@ const addMesage = ({ name, message }) => {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 };
 
-client.addEventListener("message", (message) => {
-  let data;
-  try {
-    data = JSON.parse(message.data);
-  } catch (err) {
-    return;
-  }
-
-  if (data.type === "auth_error") {
-    alert(data.error);
-  } else if (data.type === "auth_success") {
-    token = data.token;
-    loginContainer.style.display = "none";
-    chatContainer.style.display = "block";
-    newMessageContainer.style.display = "block";
-  } else if (data.type === "chat_message_error") {
-    alert(data.error);
-  } else if (data.type === "chat_message") {
-    addMesage(data);
-  }
-});
-
 const postMessage = (message) => {
   client.send(
     JSON.stringify({
@@ -81,4 +59,26 @@ loginContainer.addEventListener("submit", (event) => {
       password,
     })
   );
+});
+
+client.addEventListener("message", (message) => {
+  let data;
+  try {
+    data = JSON.parse(message.data);
+  } catch (err) {
+    return;
+  }
+
+  if (data.type === "auth_error") {
+    alert(data.error);
+  } else if (data.type === "auth_success") {
+    token = data.token;
+    loginContainer.style.display = "none";
+    chatContainer.style.display = "block";
+    newMessageContainer.style.display = "block";
+  } else if (data.type === "chat_message_error") {
+    alert(data.error);
+  } else if (data.type === "chat_message") {
+    addMesage(data);
+  }
 });

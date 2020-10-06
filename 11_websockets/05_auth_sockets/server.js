@@ -57,6 +57,8 @@ wss.on("connection", (ws) => {
       const token = nanoid();
       DB.tokens[token] = user.id;
 
+      clients.set(user.id, ws);
+
       return ws.send(
         JSON.stringify({
           type: "auth_success",
@@ -78,8 +80,6 @@ wss.on("connection", (ws) => {
 
       const userId = DB.tokens[token];
       const user = DB.users.find((u) => u.id === userId);
-
-      clients.set(userId, ws);
 
       const fullMessage = JSON.stringify({
         type: data.type,

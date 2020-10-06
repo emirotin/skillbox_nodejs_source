@@ -59,7 +59,6 @@ server.on("upgrade", (req, socket, head) => {
 
 wss.on("connection", (ws, req) => {
   const { userId } = req;
-  const user = DB.users.find((u) => u.id === userId);
 
   clients.set(userId, ws);
 
@@ -76,6 +75,7 @@ wss.on("connection", (ws, req) => {
     }
 
     if (data.type === "chat_message") {
+      const user = DB.users.find((u) => u.id === userId);
       const fullMessage = JSON.stringify({
         type: data.type,
         message: data.message,
