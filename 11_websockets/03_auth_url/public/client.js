@@ -7,15 +7,15 @@ const chatContainer = document.getElementById("chat");
 const newMessageContainer = document.getElementById("new-message-container");
 const newMessage = document.getElementById("new-message");
 
-const addMesage = ({ name, message }) => {
+const addMessage = ({ name, message }) => {
   const cEl = document.createElement("p");
 
-  const nEl = document.createElement("name");
+  const nEl = document.createElement("span");
   nEl.className = "name";
   nEl.innerText = name;
   cEl.appendChild(nEl);
 
-  const mEl = document.createElement("name");
+  const mEl = document.createElement("span");
   mEl.className = "message";
   mEl.innerText = message;
   cEl.appendChild(mEl);
@@ -79,7 +79,7 @@ loginContainer.addEventListener("submit", (event) => {
           return;
         }
         if (data.type === "chat_message") {
-          addMesage(data);
+          addMessage(data);
         }
       });
 
