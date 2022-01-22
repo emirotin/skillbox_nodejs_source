@@ -14,7 +14,7 @@
     "lodash": "^4.17.20",
     "migrate-mongo": "^8.1.1",
     "mongodb": "^3.6.0",
-    "nanoid": "^3.1.12"
+    "nanoid": "^3.1.31"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
